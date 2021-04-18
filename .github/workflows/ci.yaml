@@ -8,10 +8,10 @@ on:
   pull_request:
     branches:
       - '*'
-
-  Yamllint:
-    name: 'Yamllint'
-    runs-on: 'ubuntu-latest'
+jobs:
+  yamllint:
+    name: 'yamllint'
+    runs-on: 'self-hosted'
     steps:
       - uses: 'actions/checkout@v2'
       - uses: './yamllint'
