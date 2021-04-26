@@ -1,61 +1,62 @@
+---
 name: 'Aqua Security Trivy'
 description: 'Scans container images for vulnerabilities with Trivy'
 author: 'Aqua Security'
 inputs:
   scan-type:
     description: 'Scan type to use for scanning vulnerability'
-    required: false
+    required: False
     default: 'image'
   image-ref:
     description: 'image reference(for backward compatibility)'
-    required: true
+    required: True
   input:
     description: 'reference of tar file to scan'
-    required: false
+    required: False
     default: ''
   scan-ref:
     description: 'Scan reference'
-    required: false
+    required: False
     default: '.'
   exit-code:
     description: 'exit code when vulnerabilities were found'
-    required: false
+    required: False
     default: '0'
   ignore-unfixed:
     description: 'ignore unfixed vulnerabilities'
-    required: false
-    default: 'false'
+    required: False
+    default: 'False'
   vuln-type:
     description: 'comma-separated list of vulnerability types (os,library)'
-    required: false
+    required: False
     default: 'os,library'
   severity:
     description: 'severities of vulnerabilities to be displayed'
-    required: false
+    required: False
     default: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL'
   format:
     description: 'output format (table, json, template)'
-    required: false
+    required: False
     default: 'table'
   template:
     description: 'use an existing template for rendering output (@/contrib/sarif.tpl, @/contrib/gitlab.tpl, @/contrib/junit.tpl'
-    required: false
+    required: False
     default: ''
   output:
     description: 'writes results to a file with the specified file name'
-    required: false
+    required: False
     default: ''
   skip-dirs:
     description: 'comma separated list of directories where traversal is skipped'
-    required: false
+    required: False
     default: ''
   cache-dir:
     description: 'specify where the cache is stored'
-    required: false
+    required: False
     default: ''
   timeout:
     description: 'timeout (default 2m0s)'
-    required: false
+    required: False
     default: ''
 runs:
   using: 'docker'
