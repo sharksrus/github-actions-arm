@@ -18,9 +18,30 @@ jobs:
         with:
           args: '*/Dockerfile'
 
-  yamllint:
-    name: 'yamllint'
-    runs-on: 'ubuntu-latest'
+  trivy:
+    name: 'trivy'
+    runs-on: 'self-hosted'
     steps:
       - uses: 'actions/checkout@v2'
-      - uses: './yamllint'
+      - name: 'Checkout GitHub actions repo'
+        uses: 'actions/checkout@v2'
+        with:
+          repository: 'sharksRus/github-actions-arm'
+          path: '.github/actions'
+          ref: 'main'
+      - name: 'running trivy'
+        uses: './.github/actions/trivy'
+
+  yamllint:
+    name: 'yamllint'
+    runs-on: 'self-hosted'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - name: 'Checkout GitHub actions repo'
+        uses: 'actions/checkout@v2'
+        with:
+          repository: 'sharksRus/github-actions-arm'
+          path: '.github/actions'
+          ref: 'main'
+      - name: 'running yamllint'
+        uses: './.github/actions/yamllint'
