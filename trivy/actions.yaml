@@ -1,0 +1,6 @@
+---
+name: 'trivy-action'
+description: 'GitHub Action for trivy scanning'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
