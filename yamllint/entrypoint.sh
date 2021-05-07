@@ -6,4 +6,4 @@ set -e
 cp /yamllint.json /github/workflow/yamllint.json
 echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/yamllint.json"
 
-sh -c "yamllint $*"
+sh -c "yamllint -f parsable $*"
