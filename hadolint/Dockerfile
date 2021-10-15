@@ -1,13 +1,10 @@
-FROM alpine:3.13.5
+FROM alpine:3.14.2
 
-ENV HADOLINT_VERSION=2.1.0
-ENV HADOLINT_SHA256SUM=ecaf24a8d9dec2f5e16a8f951a6de51bfa9e43f285f4c751b208a9d90c66a0ce
+ENV HADOLINT_VERSION=2.7.0
+ENV HADOLINT_SHA256SUM=cdd5ca6f07f72053e8f2d18a9390a7b7fc6e819b6a251835971411f300dab8e6
 ENV HADOLINT_DOWNLOAD=https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64
 
 COPY hadolint-action.sh /usr/local/bin/hadolint-action
-
-COPY entrypoint.sh /entrypoint.sh
-COPY hadolint.json /hadolint.json
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 # hadolint ignore=DL3018
